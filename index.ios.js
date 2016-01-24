@@ -7,11 +7,13 @@ import React, {
   View
 } from 'react-native';
 
+import Output from './components/Output';
+
 class Morse extends Component {
   constructor() {
     super();
     this.state = {
-      // text: '',
+      text: '',
     };
   }
 
@@ -93,6 +95,10 @@ class Morse extends Component {
           clearButtonMode={'while-editing'}
         />
         <Text>{this.textToMorse(this.state.text)}</Text>
+        <Output
+          ditsPerMinute={100}
+          encodedMorse={this.textToMorse(this.state.text)}
+        />
       </View>
     );
   }
