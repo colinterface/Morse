@@ -71,7 +71,7 @@ class Morse extends Component {
     };
 
     return text.split('').map((character, i, array) => {
-      return morseAlphabet[character.toLowerCase()];
+      return morseAlphabet[character.toLowerCase()] + ' ';
     }).join('');
   }
 
@@ -94,7 +94,12 @@ class Morse extends Component {
           value={this.state.text}
           clearButtonMode={'while-editing'}
         />
-        <Text>{this.textToMorse(this.state.text)}</Text>
+        <Text style={{
+          fontSize: 16,
+        }}
+        >
+          {this.textToMorse(this.state.text)}
+        </Text>
         <Output
           ditsPerMinute={100}
           encodedMorse={this.textToMorse(this.state.text)}
